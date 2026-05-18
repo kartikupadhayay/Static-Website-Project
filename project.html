@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shriji Optimum Solution Pvt Ltd</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #c8251d;
+  --primary-dark: #9e1c15;
+  --dark: #111827;
+  --darker: #0a0f1a;
+  --mid: #1f2937;
+  --light-bg: #f8f9fa;
+  --white: #ffffff;
+  --text: #374151;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Open Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+/* TOPBAR */
+.topbar {
+  background: var(--darker); padding: 8px 6%;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.78rem; color: #9ca3af;
+}
+.topbar a { color: #9ca3af; text-decoration: none; }
+.topbar a:hover { color: white; }
+.topbar-left, .topbar-right { display: flex; gap: 24px; align-items: center; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  background: white; box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+  padding: 0 6%; display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo { display: flex; align-items: center; padding: 4px 0; text-decoration: none; }
+.nav-logo img {
+  height: 64px;
+  width: auto;
+  max-width: 320px;
+  object-fit: contain;
+  display: block;
+}
+.nav-links { display: flex; list-style: none; align-items: center; }
+.nav-links a {
+  display: flex; padding: 0 12px;
+  height: 46px; align-items: center;
+  text-decoration: none; font-size: 0.78rem; font-weight: 600;
+  color: var(--text); letter-spacing: 0.04em; text-transform: uppercase;
+  border-bottom: 3px solid transparent; transition: color 0.2s, border-color 0.2s;
+}
+.nav-links a:hover { color: var(--primary); border-color: var(--primary); }
+.nav-cta {
+  background: var(--primary); color: white !important;
+  display: flex; align-items: center; justify-content: center;
+  height: 46px; padding: 0 24px; margin-left: 14px;
+  border: none; border-radius: 0;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none; transition: 0.25s ease;
+}
+.nav-cta:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+/* HERO */
+.hero { min-height: 91vh; position: relative; background: var(--darker); display: flex; align-items: center; overflow: hidden; }
+.hero-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,15,26,0.97) 0%, rgba(10,15,26,0.72) 55%, rgba(10,15,26,0.4) 100%),
+    url('image copy.png') center/cover no-repeat;
+}
+.hero-stripe { position: absolute; left: 0; top: 0; bottom: 0; width: 5px; background: linear-gradient(to bottom, var(--primary), #f59e0b); }
+.hero-content { position: relative; z-index: 2; padding: 100px 6% 80px; max-width: 780px; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(200,37,29,0.15); border: 1px solid rgba(200,37,29,0.4);
+  color: #f87171; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 6px 14px; margin-bottom: 28px; animation: fadeUp 0.6s ease both;
+}
+.hero-badge::before { content:''; width:6px; height:6px; background:var(--primary); border-radius:50%; }
+.hero h1 {
+  font-family: 'Montserrat', sans-serif; font-weight: 900;
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem); line-height: 1.1; color: white;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+.hero h1 span { color: var(--primary); }
+.hero-sub { margin-top: 20px; font-size: 1rem; line-height: 1.85; color: #9ca3af; font-weight: 300; max-width: 580px; animation: fadeUp 0.6s 0.2s ease both; }
+.hero-btns { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; animation: fadeUp 0.6s 0.3s ease both; }
+.btn-red {
+  background: var(--primary); color: white; padding: 13px 32px 13px 28px;
+  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: pointer;
+  clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%);
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-red:hover { background: var(--primary-dark); transform: translateX(3px); }
+.btn-ghost {
+  background: transparent; color: white; padding: 13px 28px;
+  border: 1px solid rgba(255,255,255,0.25); font-family: 'Montserrat', sans-serif;
+  font-weight: 600; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+  text-decoration: none; transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--primary); color: var(--primary); }
+
+/* STATS BAR */
+.stats-bar { background: var(--primary); display: grid; grid-template-columns: repeat(4, 1fr); }
+.stat-item { padding: 30px 20px; text-align: center; border-right: 1px solid rgba(255,255,255,0.15); transition: background 0.2s; }
+.stat-item:last-child { border-right: none; }
+.stat-item:hover { background: rgba(0,0,0,0.12); }
+.stat-num { font-family: 'Montserrat', sans-serif; font-size: 2.4rem; font-weight: 900; color: white; line-height: 1; }
+.stat-num sup { font-size: 1rem; }
+.stat-label { font-size: 0.7rem; color: rgba(255,255,255,0.75); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 6px; }
+
+/* SECTIONS */
+section { padding: 88px 6%; }
+.section-label { display: flex; align-items: center; gap: 10px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--primary); margin-bottom: 10px; }
+.section-label::before { content:''; width:28px; height:2px; background:var(--primary); }
+.section-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 3.5vw, 2.7rem); color: var(--dark); line-height: 1.2; }
+.section-title span { color: var(--primary); }
+
+/* ABOUT */
+.about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-img-stack { position: relative; }
+.about-img-main { width: 100%; height: 420px; object-fit: cover; }
+.about-img-overlay { position: absolute; bottom: -28px; right: -28px; width: 210px; height: 155px; object-fit: cover; border: 6px solid white; box-shadow: 0 12px 40px rgba(0,0,0,0.18); }
+.exp-badge { position: absolute; top: -18px; left: -18px; width: 96px; height: 96px; background: var(--primary); display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; text-align: center; }
+.exp-badge .num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.9rem; line-height: 1; }
+.exp-badge .lbl { font-size: 0.58rem; letter-spacing: 0.06em; text-transform: uppercase; line-height: 1.3; margin-top: 3px; }
+.about-text .section-title { margin-bottom: 18px; }
+.about-text p { color: var(--muted); line-height: 1.9; margin-bottom: 14px; }
+.about-checks { margin: 24px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.check-item { display: flex; align-items: center; gap: 8px; font-size: 0.84rem; font-weight: 600; color: var(--dark); }
+.check-item::before { content:'✓'; color:var(--primary); font-weight:900; }
+.directors { display: flex; gap: 14px; margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
+.director { flex:1; padding: 14px 16px; background: var(--light-bg); border-left: 3px solid var(--primary); }
+.director .role { font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary); margin-bottom: 3px; }
+.director .name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--dark); }
+
+/* SERVICES */
+.services-section { background: var(--darker); }
+.services-section .section-label { color: #f87171; }
+.services-section .section-label::before { background: #f87171; }
+.services-section .section-title { color: white; }
+.services-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 52px; }
+.services-intro p { color: #9ca3af; line-height: 1.8; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.svc-card { background: var(--mid); padding: 38px 30px; position: relative; overflow: hidden; transition: background 0.25s; }
+.svc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--primary); transform:scaleX(0); transition:transform 0.3s; }
+.svc-card:hover { background: #263045; }
+.svc-card:hover::before { transform: scaleX(1); }
+.svc-icon { width: 50px; height: 50px; background: rgba(200,37,29,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 18px; }
+.svc-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; color: white; margin-bottom: 10px; }
+.svc-card p { font-size: 0.81rem; color: #9ca3af; line-height: 1.7; margin-bottom: 14px; }
+.svc-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+.svc-tag { font-size: 0.63rem; letter-spacing: 0.05em; background: rgba(200,37,29,0.1); color: #f87171; padding: 3px 8px; }
+
+/* CLIENTS */
+.clients-section { background: var(--light-bg); }
+.clients-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 44px; gap: 40px; }
+.clients-desc { max-width: 420px; color: var(--muted); line-height: 1.8; }
+.clients-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.client-card {
+  background: white; padding: 26px 22px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border-top: 3px solid transparent; transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 110px; gap: 10px;
+}
+.client-card:hover { border-color: var(--primary); box-shadow: 0 4px 20px rgba(200,37,29,0.1); }
+/* SVG-based client logos */
+.client-logo-svg { width: 160px; height: 40px; display: flex; align-items: center; justify-content: center; }
+.client-logo-svg svg { max-width: 100%; max-height: 100%; }
+.client-logo-svg img { width: 100%; height: 100%; object-fit: contain; }
+.client-name { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.8rem; color: var(--dark); }
+.client-sub { font-size: 0.68rem; color: var(--muted); margin-top: 2px; }
+
+/* PROJECTS */
+.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+.proj-card { background: white; border: 1px solid var(--border); overflow: hidden; transition: box-shadow 0.25s, transform 0.25s; }
+.proj-card:hover { box-shadow: 0 14px 44px rgba(0,0,0,0.1); transform: translateY(-4px); }
+.proj-header { padding: 26px 26px 0; display: flex; justify-content: space-between; align-items: flex-start; }
+.proj-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.8rem; color: rgba(200,37,29,0.07); line-height: 1; }
+.proj-status { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: #dcfce7; color: #166534; padding: 4px 10px; }
+.proj-status.upcoming { background: #fef9c3; color: #854d0e; }
+.proj-status.completed { background: #e0e7ff; color: #3730a3; }
+.proj-body { padding: 10px 26px 26px; }
+.proj-client { font-size: 0.7rem; color: var(--primary); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+.proj-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.97rem; color: var(--dark); margin-bottom: 10px; }
+.proj-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.7; }
+.proj-footer { padding: 14px 26px; background: var(--light-bg); border-top: 1px solid var(--border); font-size: 0.73rem; color: var(--muted); }
+.proj-value { font-size: 0.72rem; font-weight: 700; color: var(--primary); margin-top: 10px; }
+
+/* GALLERY */
+.gallery-section { background: var(--darker); padding: 88px 6%; }
+.gallery-section .section-label { color: #f87171; }
+.gallery-section .section-label::before { background: #f87171; }
+.gallery-section .section-title { color: white; margin-bottom: 10px; }
+.gallery-intro { color: #9ca3af; margin-bottom: 44px; line-height: 1.8; max-width: 600px; }
+.gallery-filter { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
+.filter-btn {
+  padding: 7px 18px; font-size: 0.73rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  background: rgba(255,255,255,0.05); color: #9ca3af; border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer; transition: all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto;
+  gap: 4px;
+}
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 320px;
+    background: #111827;
+}
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+.gallery-item {
+    height: 320px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.gallery-placeholder {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 10px; padding: 20px; text-align: center;
+  background: linear-gradient(135deg, var(--mid) 0%, #263045 100%);
+  transition: transform 0.3s;
+  min-height: 180px;
+}
+.gallery-item:hover .gallery-placeholder { transform: scale(1.04); }
+.gallery-placeholder .g-icon { font-size: 2rem; opacity: 0.4; }
+.gallery-placeholder .g-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; color: rgba(255,255,255,0.6); }
+.gallery-placeholder .g-sub { font-size: 0.68rem; color: rgba(255,255,255,0.3); }
+.gallery-overlay {
+  position: absolute; inset: 0; background: rgba(200,37,29,0.85);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay span { color: white; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.gallery-upload-note {
+  margin-top: 24px; padding: 16px 20px;
+  background: rgba(255,255,255,0.04); border: 1px dashed rgba(255,255,255,0.12);
+  color: #6b7280; font-size: 0.78rem; line-height: 1.7; text-align: center;
+}
+.gallery-upload-note strong { color: #9ca3af; }
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item {
+        height: 260px;
+    }
+}
+
+/* WHY US */
+.whyus-section { background: var(--dark); }
+.whyus-section .section-label { color: #f87171; }
+.whyus-section .section-label::before { background: #f87171; }
+.whyus-section .section-title { color: white; margin-bottom: 48px; }
+.whyus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+.why-card { padding: 38px 30px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); transition: background 0.2s; }
+.why-card:hover { background: rgba(200,37,29,0.07); }
+.why-num { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 2.4rem; color: rgba(200,37,29,0.2); line-height: 1; margin-bottom: 18px; }
+.why-card h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.93rem; color: white; margin-bottom: 10px; }
+.why-card p { font-size: 0.82rem; color: #6b7280; line-height: 1.7; }
+
+/* CAREERS */
+.careers-section { background: var(--light-bg); padding: 88px 6%; }
+.careers-header { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 52px; }
+.careers-text p { color: var(--muted); line-height: 1.9; margin-bottom: 14px; }
+.careers-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+.career-highlight { display: flex; align-items: center; gap: 8px; font-size: 0.84rem; font-weight: 600; color: var(--dark); }
+.career-highlight::before { content:'●'; color: var(--primary); font-size: 0.5rem; }
+.careers-cta-box {
+  background: white; border: 1px solid var(--border); padding: 38px 36px;
+  border-top: 4px solid var(--primary);
+}
+.careers-cta-box h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--dark); margin-bottom: 14px; }
+.careers-cta-box p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+.hr-contact { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+.hr-row { display: flex; gap: 12px; align-items: center; padding: 12px 14px; background: var(--light-bg); }
+.hr-row .hr-icon { font-size: 1rem; flex-shrink: 0; }
+.hr-row .hr-label { font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); font-weight: 700; }
+.hr-row .hr-val { font-size: 0.85rem; color: var(--dark); }
+.hr-row .hr-val a { color: var(--dark); text-decoration: none; }
+.hr-row .hr-val a:hover { color: var(--primary); }
+.roles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-top: 0; }
+.role-card { background: white; border: 1px solid var(--border); padding: 24px 22px; border-top: 3px solid transparent; transition: border-color 0.2s, box-shadow 0.2s; }
+.role-card:hover { border-top-color: var(--primary); box-shadow: 0 4px 20px rgba(200,37,29,0.08); }
+.role-dept { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); margin-bottom: 8px; }
+.role-card h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--dark); margin-bottom: 8px; }
+.role-card p { font-size: 0.79rem; color: var(--muted); line-height: 1.6; }
+.role-card .apply-link { display: inline-block; margin-top: 14px; font-size: 0.72rem; font-weight: 700; color: var(--primary); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+.role-card .apply-link:hover { text-decoration: underline; }
+
+/* CTA BAND */
+.cta-band { background: var(--primary); padding: 60px 6%; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; }
+.cta-band h2 { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.1rem); color: white; line-height: 1.2; }
+.cta-band p { color: rgba(255,255,255,0.75); margin-top: 8px; max-width: 500px; }
+.btn-white { background: white; color: var(--primary); padding: 14px 32px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background 0.2s, transform 0.15s; flex-shrink: 0; }
+.btn-white:hover { background: var(--dark); color: white; transform: translateY(-2px); }
+
+/* CONTACT */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: start; }
+.contact-info .section-title { margin-bottom: 18px; }
+.contact-info > p { color: var(--muted); line-height: 1.8; margin-bottom: 34px; }
+.contact-detail { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid var(--border); }
+.c-icon { width: 40px; height: 40px; background: rgba(200,37,29,0.08); display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0; }
+.c-label { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin-bottom: 3px; }
+.c-value { font-size: 0.87rem; color: var(--dark); line-height: 1.6; }
+.c-value a { color: var(--dark); text-decoration: none; }
+.c-value a:hover { color: var(--primary); }
+.contact-form-wrap { background: var(--light-bg); padding: 40px 38px; }
+.contact-form-wrap h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--dark); margin-bottom: 26px; padding-bottom: 14px; border-bottom: 2px solid var(--primary); }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.cf-full { margin-bottom: 12px; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 11px 15px; background: white; border: 1px solid var(--border); font-family: 'Open Sans', sans-serif; font-size: 0.84rem; color: var(--dark); outline: none; transition: border-color 0.2s; }
+.contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary); }
+.contact-form input::placeholder, .contact-form textarea::placeholder { color: #9ca3af; }
+.contact-form textarea { resize: vertical; min-height: 95px; }
+.cf-note { font-size: 0.72rem; color: var(--muted); margin-bottom: 16px; }
+.cf-note strong { color: var(--primary); }
+
+/* FOOTER */
+footer { background: var(--darker); }
+.footer-top { padding: 56px 6% 36px; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.footer-brand p { font-size: 0.82rem; color: #6b7280; line-height: 1.8; margin: 14px 0 18px; max-width: 300px; }
+.footer-logo-sm { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 0.95rem; color: var(--primary); letter-spacing: 0.04em; }
+.footer-reg { font-size: 0.7rem; color: #4b5563; }
+.footer-col h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: #9ca3af; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 9px; }
+.footer-col a { font-size: 0.82rem; color: #6b7280; text-decoration: none; transition: color 0.2s; }
+.footer-col a:hover { color: var(--primary); }
+.footer-bottom { padding: 18px 6%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.footer-bottom p { font-size: 0.74rem; color: #4b5563; }
+.footer-licence { font-size: 0.7rem; color: #374151; background: rgba(200,37,29,0.08); display: inline-block; padding: 3px 10px; margin-top: 8px; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+.reveal { opacity:0; transform:translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 1024px) {
+  .about-wrap, .services-intro, .contact-wrap, .careers-header { grid-template-columns: 1fr; gap: 40px; }
+  .services-grid, .projects-grid { grid-template-columns: 1fr 1fr; }
+  .whyus-grid { grid-template-columns: 1fr 1fr; }
+  .about-img-overlay { display: none; }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .gallery-item:first-child { grid-column: span 2; }
+  .gallery-item:nth-child(4) { grid-column: span 1; }
+  .roles-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .topbar { display: none; }
+  .nav-links { display: none; }
+  .services-grid, .projects-grid, .clients-grid, .whyus-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+  .footer-top { grid-template-columns: 1fr; }
+  .cf-row { grid-template-columns: 1fr; }
+  .hero-content { padding: 80px 5% 60px; }
+  .clients-header { flex-direction: column; align-items: flex-start; }
+  .exp-badge { display: none; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item:first-child { grid-column: span 2; }
+  .gallery-item:nth-child(4) { grid-column: span 2; }
+  .roles-grid { grid-template-columns: 1fr; }
+  .careers-highlights { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-left">
+    <span>📍 M6, 2nd Floor, Aditya Corporate Hub, RDC Rajnagar, Ghaziabad – 201002</span>
+    <span>✉️ <a href="mailto:"></a></span>
+  </div>
+  <div class="topbar-right">
+    <span>📞 <a href="tel:">+91 XXXXXXXXXXX</a></span>
+    <span>🌐 <a href="http://www.sjospl.com">www.sjospl.com</a></span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="Logo2.png" alt="Shriji Optimum Solution Pvt Ltd">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#clients">Clients</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#careers">Careers</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Electro-Mechanical Engineering Solutions</div>
+    <h1>Engineering <span>Trust.</span><br>Building Tomorrow.</h1>
+    <p class="hero-sub">Shriji Optimum Solution Pvt Ltd delivers integrated end-to-end engineering services across Power, Solar, and Industrial sectors — from Erection & Commissioning to long-term O&M.</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn-red">Explore Services</a>
+      <a href="#contact" class="btn-ghost">Request a Quote</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-num">7<sup>+</sup></div><div class="stat-label">Active & Won Projects</div></div>
+  <div class="stat-item"><div class="stat-num">8<sup>+</sup></div><div class="stat-label">Major Clients</div></div>
+  <div class="stat-item"><div class="stat-num">₹2.94<sup>Cr</sup></div><div class="stat-label">Avg Annual Turnover</div></div>
+  <div class="stat-item"><div class="stat-num">0</div><div class="stat-label">Incident Safety Goal</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div class="about-img-stack reveal">
+      <img class="about-img-main" src="photo.png" alt="Engineering work site">
+      <img class="about-img-overlay" src="image.png" alt="Control panel work">
+      <div class="exp-badge">
+        <div class="num">25<sup style="font-size:0.9rem">+</sup></div>
+        <div class="lbl">Years Team Experience</div>
+      </div>
+    </div>
+    <div class="about-text reveal">
+      <div class="section-label">Who We Are</div>
+      <h2 class="section-title">Powering India's <span>Industrial</span> Growth</h2>
+      <p>Shriji Optimum Solution Pvt Ltd is a dynamic Electro-Mechanical company established in 2024, headquartered in Ghaziabad, Uttar Pradesh. We bring together advanced technology, skilled manpower, and customer-focused strategies to deliver cost-effective and sustainable engineering solutions.</p>
+      <p>Shriji Optimum Solution have also tied up with various Expert Agencies for carrying out specialized jobs like Radiography, Heat Treatment, and Thickness Measurement and to provide Experts (Ex.BHEL) in the Power Sector.</p>
+      <p>We specialize in Turnkey Projects, Annual Maintenance Contracts, Overhauling, and complete project execution for Solar and Thermal Power Plants (BTG, CHP, BOP) — maintaining an unwavering commitment to innovation, safety, and technical excellence. We hold an <strong>A-Class Electrical Licence</strong> of Uttar Pradesh.</p>
+      <div class="about-checks">
+        <div class="check-item">Turnkey Project Execution</div>
+        <div class="check-item">Annual Maintenance Contracts</div>
+        <div class="check-item">Thermal & Solar Power Plants</div>
+        <div class="check-item">Skilled Engineering Manpower</div>
+        <div class="check-item">BTG, CHP & BOP Coverage</div>
+        <div class="check-item">Zero Incident Safety Goal</div>
+        <div class="check-item">A-Class UP Electrical Licence</div>
+        <div class="check-item">Material Supply & Procurement</div>
+      </div>
+      <div class="directors">
+        <div class="director"><div class="role">Director</div><div class="name">Vineet Siwach</div></div>
+        <div class="director"><div class="role">Director</div><div class="name">Gaurav Kumar</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div class="services-intro">
+    <div class="reveal">
+      <div class="section-label">What We Do</div>
+      <h2 class="section-title">Our Core <span>Engineering</span> Services</h2>
+    </div>
+    <p class="reveal">From initial erection to long-term maintenance, we offer a comprehensive suite of engineering services tailored for power generation and heavy industry — ensuring maximum uptime, safety, and efficiency across all sites.</p>
+  </div>
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <div class="svc-icon">⚙️</div>
+      <h3>Mechanical Engineering</h3>
+      <p>Precision fabrication, structural erection, and commissioning for industrial and power facilities including overhauling up to 600 MW units.</p>
+      <div class="svc-tags"><span class="svc-tag">Fabrication & Erection</span><span class="svc-tag">Coal Mill Overhauling</span><span class="svc-tag">Boiler Auxiliaries</span><span class="svc-tag">Ash Handling</span><span class="svc-tag">Fan & APH Overhauling</span><span class="svc-tag">Chute Fabrication</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">⚡</div>
+      <h3>Electrical Engineering</h3>
+      <p>Complete electrical solutions from HT/LT installations to transformer servicing, solar power execution, and industrial lighting projects.</p>
+      <div class="svc-tags"><span class="svc-tag">HT/LT Panels</span><span class="svc-tag">Transformer E&C</span><span class="svc-tag">Motor Overhauling</span><span class="svc-tag">Solar Projects</span><span class="svc-tag">Tan Delta / SFRA</span><span class="svc-tag">IPBD Overhauling</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">🎛️</div>
+      <h3>Control & Instrumentation</h3>
+      <p>Advanced control systems, DCS commissioning, instrumentation calibration, and relay testing for power plants.</p>
+      <div class="svc-tags"><span class="svc-tag">DCS Commissioning</span><span class="svc-tag">VCB & Relay Testing</span><span class="svc-tag">Loop Checking</span><span class="svc-tag">Calibration</span><span class="svc-tag">BMS Automation</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">🔧</div>
+      <h3>Operation & Maintenance</h3>
+      <p>Comprehensive AMC and preventive maintenance programs ensuring reliability and maximum uptime across thermal and solar plants.</p>
+      <div class="svc-tags"><span class="svc-tag">AMC Contracts</span><span class="svc-tag">Annual Overhauling</span><span class="svc-tag">Predictive Maintenance</span><span class="svc-tag">24/7 Support</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">☀️</div>
+      <h3>Power Plant Services</h3>
+      <p>End-to-end services for Thermal and Solar Power Plants covering BTG, CHP, and BOP areas including manpower supply.</p>
+      <div class="svc-tags"><span class="svc-tag">BTG / CHP / BOP</span><span class="svc-tag">Thermal Power E&C</span><span class="svc-tag">Solar EPC</span><span class="svc-tag">Manpower Supply</span><span class="svc-tag">Radiography</span></div>
+    </div>
+    <div class="svc-card reveal">
+      <div class="svc-icon">📦</div>
+      <h3>Material Supply</h3>
+      <p>Supply of complete electrical and C&I materials — panels, lights, cables, poles, earthing, sensors, bearings, pneumatic seals, and pressure gauges.</p>
+      <div class="svc-tags"><span class="svc-tag">Panels & Lights</span><span class="svc-tag">Cables & Poles</span><span class="svc-tag">Earthing Materials</span><span class="svc-tag">Sensors & Gauges</span><span class="svc-tag">Bearings & Seals</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="clients-section" id="clients">
+  <div class="clients-header reveal">
+    <div>
+      <div class="section-label">Trusted By</div>
+      <h2 class="section-title">Our Valued <span>Clients</span></h2>
+    </div>
+    <p class="clients-desc">We are proud to partner with some of India's most respected industrial and power sector companies, delivering consistent quality and excellence on every project.</p>
+  </div>
+  <div class="clients-grid reveal">
+
+    <!-- NMDC -->
+    <div class="client-card">
+      <div class="client-logo-svg">
+        <img src="nmdc.png" style="width: 100%;height: 100%;object-fit: contain;">
+      </div>
+      <div class="client-name">NMDC</div>
+    </div>
+
+    <!-- Hindalco -->
+    <div class="client-card">
+      <div class="client-logo-svg">
+        <img src="Hindalco.png" style="width: 100%;height: 100%;object-fit: contain;">
+      </div>
+      <div class="client-name">Hindalco</div>
+    </div>
+
+    <!-- Adani Power -->
+    <div class="client-card">
+      <div class="client-logo-svg">
+        <img src="Adani.png" style="width: 100%;height: 100%;object-fit: contain;">
+      </div>
+      <div class="client-name">Adani Power</div>
+    </div>
+
+    <!-- JSW -->
+    <div class="client-card">
+      <div class="client-logo-svg">
+        <img src="jsw.png" style="width: 100%;height: 100%;object-fit: contain;">
+      </div>
+      <div class="client-name">JSW Steel</div>
+    </div>
+
+    <!-- Thermax -->
+    <div class="client-card">
+      <div class="client-logo-svg">
+        <img src="Thermax.png" style="width: 100%;height: 100%;object-fit: contain;">
+      </div>
+      <div class="client-name">Thermax</div>
+    </div>
+
+    <!-- Piccadily -->
+    <div class="client-card">
+      <div class="client-logo-svg">
+        <img src="piccadily.png" style="width: 100%;height: 100%;object-fit: contain;">
+      </div>
+      <div class="client-name">Piccadily Agro Industries</div>
+    </div>
+
+    <!-- Prayagraj Power -->
+    <div class="client-card">
+      <div class="client-logo-svg">
+        <img src="ppgcl.png" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="client-name">Prayagraj Power Generation Company Lim</div>
+    </div>
+
+    <!-- S.R. Turbo -->
+    <div class="client-card">
+      <div class="client-logo-svg">
+        <img src="s_r_turbo.png" style="width:100%;height:100%;object-fit:cover">
+      </div>
+      <div class="client-name">S.R. Turbo Energy Private Lim</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="background:var(--light-bg);">
+  <div class="reveal">
+    <div class="section-label">Track Record</div>
+    <h2 class="section-title">Projects — <span>Ongoing, Won & Upcoming</span></h2>
+  </div>
+  <div class="projects-grid">
+
+    <!-- completed 1 -->
+    <div class="proj-card reveal">
+      <div class="proj-header"><div class="proj-num">01</div><span class="proj-status completed">● Completed</span></div>
+      <div class="proj-body">
+        <div class="proj-client">Piccadily Agro Industries · Mahasamund, C.G.</div>
+        <h3>Boiler E&C — 1×40 TPH (Commissioned)</h3>
+        <p>Commissioned the 40 TPH boiler by completing full E&I works — DCS panel erection, motor commissioning up to 350 KW, VCB & relay testing, cable laying, ESP, and Ash Conveying systems via Adixi Engineering Services Pvt Ltd.</p>
+      </div>
+      <div class="proj-footer">📋 ESP · Coal Handling · Ash Conveying · DCS</div>
+    </div>
+
+    <!-- completed 2 -->
+    <div class="proj-card reveal">
+      <div class="proj-header"><div class="proj-num">02</div><span class="proj-status completed">● Completed</span></div>
+      <div class="proj-body">
+        <div class="proj-client">Hindalco Muri Works Ltd · Muri, Jharkhand</div>
+        <h3>De-Sox System E&C for 3 CFBC Boilers</h3>
+        <p>Erection, Testing and Commissioning of complete Electrical and Control & Instrumentation systems for De-Sox systems across 3 Nos. CFBC Boilers via RKG Engineering.</p>
+      </div>
+      <div class="proj-footer">📋 Electrical E&C · C&I Systems · CFBC Boilers</div>
+    </div>
+
+    <!-- completed 3 -->
+    <div class="proj-card reveal">
+      <div class="proj-header"><div class="proj-num">03</div><span class="proj-status completed">● Completed</span></div>
+      <div class="proj-body">
+        <div class="proj-client">Prayagraj Power Generation Pvt Ltd · 650×3 MW</div>
+        <h3>Ash Handling Plant — Manpower Support</h3>
+        <p>Supply of 1 Skilled Supervisor and 25 Unskilled Workers for housekeeping operations at one of India's largest thermal power facilities via S.R. Turbo Energy.</p>
+      </div>
+      <div class="proj-footer">📋 Manpower Supply · Ash Handling · S.R. Turbo Energy</div>
+    </div>
+
+    <!-- Won / Awarded 4 -->
+    <div class="proj-card reveal">
+      <div class="proj-header"><div class="proj-num">04</div><span class="proj-status">● Ongoing</span></div>
+      <div class="proj-body">
+        <div class="proj-client">JSW Mahanadi Power Company Ltd · Akaltara, C.G.</div>
+        <h3>Plant & Road Lighting — 6×600 MW (3600 MW)</h3>
+        <p>Won as L1 bidder for supply and installation of complete plant and road lighting across the 3600 MW facility at Akaltara, Chhattisgarh. SAP ARIBA documents submitted; PO/Work Order awaited.</p>
+        <div class="proj-value">Work Order Value: ₹97,00,000 + GST</div>
+      </div>
+      <div class="proj-footer">📋 Plant Lighting · Road Lighting · L1 Bid Won · SAP ARIBA</div>
+    </div>
+
+    <!-- Completed 5 -->
+    <div class="proj-card reveal">
+      <div class="proj-header"><div class="proj-num">05</div><span class="proj-status completed">● Completed</span></div>
+      <div class="proj-body">
+        <div class="proj-client">JSW Mahanadi Power Company Ltd · Akaltara, C.G.</div>
+        <h3>Solar All-in-One Lights & 1000 LPH RO Plants</h3>
+        <p>Supply and installation of 100 Nos. Solar All-in-One 40W lights and 5 Nos. 1000 LPH RO water plants operated with 10 KW Solar Panels.</p>
+        <div class="proj-value">Work Order Value: ₹59,45,000</div>
+      </div>
+      <div class="proj-footer">📋 Solar Lighting · RO Water · 10 KW Solar</div>
+    </div>
+
+    <!-- Completed 6 -->
+    <div class="proj-card reveal">
+      <div class="proj-header"><div class="proj-num">06</div><span class="proj-status completed">● Completed</span></div>
+      <div class="proj-body">
+        <div class="proj-client">JSW IB Energy Utkal Ltd · 2×350 MW</div>
+        <h3>IPBD Overhauling & Restoration — 21 KV</h3>
+        <p>Emergency overhauling, rectification, and successful restoration of the Inter-Plant Bus Duct (IPBD) at 21 KV voltage level. Work completed on priority basis; PO in process.</p>
+        <div class="proj-value">Work Order Value: ₹1,45,000</div>
+      </div>
+      <div class="proj-footer">📋 IPBD · 21 KV · Emergency Restoration</div>
+    </div>
+
+    <!-- Upcoming 1 -->
+    <div class="proj-card reveal">
+      <div class="proj-header"><div class="proj-num">07</div><span class="proj-status upcoming">⏳ Upcoming</span></div>
+      <div class="proj-body">
+        <div class="proj-client">MEIL Anpara Energy Ltd · Sonbhadra, U.P. — 2×600 MW</div>
+        <h3>Gates, Duct Dampers & Fan Overhauling</h3>
+        <p>Planned overhauling of gates (APH I/L to Mill O/L), Duct Dampers, and Fans at the 1200 MW Anpara plant via MEIL. Scope covers all major rotating/static auxiliary equipment.</p>
+      </div>
+      <div class="proj-footer">📅 Planned: July–August 2026 · APH · Dampers · Fans</div>
+    </div>
+
+    <!-- Upcoming 2 -->
+    <div class="proj-card reveal">
+      <div class="proj-header"><div class="proj-num">08</div><span class="proj-status">● Ongoing</span></div>
+      <div class="proj-body">
+        <div class="proj-client">JSW Mahanadi Power Company Ltd · Akaltara, C.G.</div>
+        <h3>Fabrication & Erection of Chutes — 153 MT</h3>
+        <p>Complete fabrication and erection of 153 metric tonnes of chutes at JSW Mahanadi Power Plant, Akaltara — a long-term structural execution project over 12 months.</p>
+      </div>
+      <div class="proj-footer">📅 Start: 15 May 2026 — 14 May 2027 · 153 MT Chutes</div>
+    </div>
+
+    <!-- Past Overhauling -->
+    <div class="proj-card reveal">
+      <div class="proj-header"><div class="proj-num">09</div><span class="proj-status completed">● Completed</span></div>
+      <div class="proj-body">
+        <div class="proj-client">Hindustan Power · JSW Mahanadi · Adani Tilda (Raipur)</div>
+        <h3>Boiler Rotary & Auxiliaries Overhauling — Up to 600 MW</h3>
+        <p>Completed overhauling of fans, APH, coal pipes, orifices, duct dampers across multiple top-tier clients as B2B with M/s Munn Engineers & Developers Pvt Ltd. Scope included FD/ID/PA fans, mills, and complete boiler auxiliary systems.</p>
+      </div>
+      <div class="proj-footer">📋 Fan · APH · Coal Pipe · Orifice · Duct Damper</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="reveal">
+    <div class="section-label">Our Work</div>
+    <h2 class="section-title">Site Work <span>Gallery</span></h2>
+    <p class="gallery-intro">A visual record of our field execution across thermal power plants, boiler commissioning, electrical installations, and industrial sites across India.</p>
+  </div>
+
+  <div class="gallery-filter reveal">
+    <button class="filter-btn active" onclick="filterGallery('all',this)">All Work</button>
+    <button class="filter-btn" onclick="filterGallery('electrical',this)">Electrical</button>
+    <button class="filter-btn" onclick="filterGallery('mechanical',this)">Mechanical</button>
+    <button class="filter-btn" onclick="filterGallery('ci',this)">C&I</button>
+  </div>
+
+  <div class="gallery-grid reveal" id="galleryGrid">
+    <!-- Slot 1 — Hero -->
+    <div class="gallery-item" data-cat="electrical">
+        <img src="Gallery1.png" style="width:100%;height:100%;object-fit:cover">
+    </div>
+    <!-- Slot 2 -->
+    <div class="gallery-item" data-cat="mechanical">
+        <img src="Gallery2.png" style="width:100%;height:100%;object-fit:cover">
+    </div>
+    <!-- Slot 3 -->
+    <div class="gallery-item" data-cat="ci">
+        <img src="Gallery3.png" style="width:100%;height:100%;object-fit:cover">
+    </div>
+    <!-- Slot 4 — Wide -->
+    <div class="gallery-item" data-cat="mechanical">
+        <img src="Gallery4.png" style="width:100%;height:100%;object-fit:cover">
+    </div>
+    <!-- Slot 5 -->
+    <div class="gallery-item" data-cat="electrical">
+        <img src="Gallery5.png" style="width:100%;height:100%;object-fit:cover">
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="whyus-section" id="whyus">
+  <div class="reveal">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">Our Commitment to <span>Excellence</span></h2>
+  </div>
+  <div class="whyus-grid">
+    <div class="why-card reveal"><div class="why-num">01</div><h3>Modern Testing Equipment</h3><p>Own fleet of Megger (5 KV, 5 Nos.), Earth Testers, Tan Delta (ISA make), AC-DC HV Tester (Scope make), plus SFRA, DCRM, CRM, and Winding Resistance testers. Equipment upgraded continuously as required.</p></div>
+    <div class="why-card reveal"><div class="why-num">02</div><h3>Experienced Engineering Team</h3><p>Highly qualified engineers — including Ex-BHEL experts — with deep domain expertise across electrical, mechanical, and C&I disciplines and decades of power plant experience.</p></div>
+    <div class="why-card reveal"><div class="why-num">03</div><h3>Cost-Effective Solutions</h3><p>Optimized processes and skilled manpower delivery providing the best quality at competitive costs. Average annual turnover of ₹2.94 Cr demonstrates proven delivery capability.</p></div>
+    <div class="why-card reveal"><div class="why-num">04</div><h3>Timely Project Delivery</h3><p>Trained Project Teams with full ownership of progress, using innovative methods to meet tight deadlines and minimize costly plant downtime.</p></div>
+    <div class="why-card reveal"><div class="why-num">05</div><h3>Strict Safety Compliance</h3><p>Committed to the highest OHS&E standards, targeting zero incident on every site. Compliant scaffolding, PPE, and permit-to-work systems on all projects.</p></div>
+    <div class="why-card reveal"><div class="why-num">06</div><h3>Own T&P Inventory</h3><p>Complete scaffolding material, own tools and plants inventory — resources can be scaled and mobilized rapidly to any site across India without delays.</p></div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section class="careers-section" id="careers">
+  <div class="careers-header">
+    <div class="reveal">
+      <div class="section-label">Join Our Team</div>
+      <h2 class="section-title">Build Your Career in <span>Power Engineering</span></h2>
+      <div class="careers-text">
+        <p>Shriji Optimum Solution Pvt Ltd is growing rapidly across thermal power, solar, and industrial sectors. We are always looking for skilled engineers, technicians, and site supervisors who share our commitment to excellence and safety.</p>
+        <p>We offer opportunities across Electrical, Mechanical, and C&I disciplines — from fresh graduates to seasoned professionals. Our teams work on some of India's most significant power projects.</p>
+      </div>
+      <div class="careers-highlights">
+        <div class="career-highlight">Site-based & Corporate roles</div>
+        <div class="career-highlight">Competitive compensation</div>
+        <div class="career-highlight">Exposure to large-scale plants</div>
+        <div class="career-highlight">Safety-first work culture</div>
+        <div class="career-highlight">Rapid career growth</div>
+        <div class="career-highlight">Multi-discipline exposure</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="careers-cta-box">
+        <h3>Connect with HR</h3>
+        <p>Send your resume to our HR team directly. For site and project roles, mention your discipline and years of experience in your email subject line.</p>
+        <div class="hr-contact">
+          <div class="hr-row">
+            <div class="hr-icon">✉️</div>
+            <div>
+              <div class="hr-label">HR Email</div>
+              <div class="hr-val"><a href="mailto:"></a></div>
+            </div>
+          </div>
+          <div class="hr-row">
+            <div class="hr-icon">✉️</div>
+            <div>
+              <div class="hr-label">Director (Hiring)</div>
+              <div class="hr-val"><a href="mailto:"></a></div>
+            </div>
+          </div>
+          <div class="hr-row">
+            <div class="hr-icon">✉️</div>
+            <div>
+              <div class="hr-label">Operations</div>
+              <div class="hr-val"><a href="mailto:"></a></div>
+            </div>
+          </div>
+          <div class="hr-row">
+            <div class="hr-icon">📞</div>
+            <div>
+              <div class="hr-label">Phone / WhatsApp</div>
+              <div class="hr-val"><a href="tel:">+91 XXXXXXXXXX</a></div>
+            </div>
+          </div>
+        </div>
+        <a href="mailto:" class="btn-red" style="display:inline-block;clip-path:none;text-align:center;padding:12px 24px;font-size:0.8rem;">Apply Now →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="reveal" style="margin-top:0;">
+    <h3 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;color:var(--dark);margin-bottom:22px;display:flex;align-items:center;gap:10px;">
+      <span style="width:28px;height:2px;background:var(--primary);display:inline-block;"></span>
+      Open Positions &amp; Disciplines
+    </h3>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-dept">Electrical</div>
+        <h4>Electrical Site Engineer / Supervisor</h4>
+        <p>HT/LT installations, transformer commissioning, VCB & relay testing, motor overhauling at thermal and solar power plants.</p>
+        <a href="mailto:" class="apply-link">Apply via Email →</a>
+      </div>
+      <div class="role-card">
+        <div class="role-dept">C&I</div>
+        <h4>C&I Engineer / Technician</h4>
+        <p>DCS commissioning, loop checking, calibration, relay & protection systems, BMS automation for thermal power plant projects.</p>
+        <a href="mailto:" class="apply-link">Apply via Email →</a>
+      </div>
+      <div class="role-card">
+        <div class="role-dept">Mechanical</div>
+        <h4>Mechanical Engineer / Supervisor</h4>
+        <p>Fan & APH overhauling, boiler auxiliary erection, fabrication, chute and duct damper works at large thermal power plants.</p>
+        <a href="mailto:" class="apply-link">Apply via Email →</a>
+      </div>
+      <div class="role-card">
+        <div class="role-dept">Project Management</div>
+        <h4>Project Coordinator / Site Manager</h4>
+        <p>End-to-end site coordination, vendor management, progress tracking, and client liaison for multi-discipline power plant projects.</p>
+        <a href="mailto:" class="apply-link">Apply via Email →</a>
+      </div>
+      <div class="role-card">
+        <div class="role-dept">Skilled Trades</div>
+        <h4>Skilled Technician / ITI Trades</h4>
+        <p>Electricians, fitters, welders, riggers, and instrument technicians for ongoing and upcoming projects across Chhattisgarh, Jharkhand, and UP.</p>
+        <a href="mailto:" class="apply-link">Apply via Email →</a>
+      </div>
+      <div class="role-card">
+        <div class="role-dept">Solar</div>
+        <h4>Solar EPC Engineer</h4>
+        <p>Solar panel installation, inverter commissioning, RO plant integration, and complete solar EPC project execution for industrial clients.</p>
+        <a href="mailto:" class="apply-link">Apply via Email →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div>
+    <h2>Ready to Power Your Next Project?</h2>
+    <p>Partner with Shriji Optimum Solution for reliable, safe, and energy-efficient engineering services across India's power and industrial sector.</p>
+  </div>
+  <a href="#contact" class="btn-white">Get a Free Quote →</a>
+</div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title">Let's Build <span>Together</span></h2>
+      <p>We welcome enquiries for projects, AMC contracts, manpower supply, and technical consultations. Our team is ready to respond quickly to your needs.</p>
+      <div class="contact-detail"><div class="c-icon">📍</div><div><div class="c-label">Corporate Office</div><div class="c-value">M6, 2nd Floor, Aditya Corporate Hub,<br>RDC – Rajnagar, Ghaziabad, UP – 201002</div></div></div>
+      <div class="contact-detail"><div class="c-icon">📞</div><div><div class="c-label">Phone</div><div class="c-value"><a href="tel:">+91 XXXXXXXXXXX</a></div></div></div>
+      <div class="contact-detail"><div class="c-icon">✉️</div><div><div class="c-label">Email</div><div class="c-value"><a href="mailto:"></a><br><a href="mailto:"></a><br><a href="mailto:"></a></div></div></div>
+      <div class="contact-detail"><div class="c-icon">🌐</div><div><div class="c-label">Website</div><div class="c-value"><a href="http://www.sjospl.com">www.sjospl.com</a></div></div></div>
+      <div class="contact-detail"><div class="c-icon">📜</div><div><div class="c-label">Licences &amp; Registration</div><div class="c-value">A-Class Electrical Licence · Uttar Pradesh<br>GSTIN: 09ABOCS8638N1Z7 | PAN: ABOCS8638N</div></div></div>
+    </div>
+    <div class="reveal">
+      <div class="contact-form-wrap">
+        <h3>Send Us an Enquiry</h3>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="cf-row">
+            <input type="text" id="f-name" placeholder="Your Name *" required>
+            <input type="text" id="f-company" placeholder="Company Name">
+          </div>
+          <div class="cf-row">
+            <input type="email" id="f-email" placeholder="Email Address *" required>
+            <input type="tel" id="f-phone" placeholder="Phone Number">
+          </div>
+          <div class="cf-full">
+            <textarea id="f-message" placeholder="Describe your project or requirement..." rows="4"></textarea>
+          </div>
+          <p class="cf-note">On submit: <strong>✉️ Email</strong> sent to your inbox + <strong>💬 WhatsApp</strong> alert for quick follow-up.</p>
+          <button type="submit" id="submit-btn" class="btn-red" style="border:none; width:100%; text-align:center; padding:14px; clip-path:none; font-size:0.85rem;">
+            Send Enquiry →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo-sm">SHRIJI OPTIMUM SOLUTION PVT LTD</div>
+      <p>An integrated Electro-Mechanical company delivering high-quality, cost-effective engineering services across Thermal Power, Solar, and Industrial sectors from Ghaziabad, India.</p>
+      <div class="footer-reg">GSTIN: 09ABOCS8638N1Z7 &nbsp;|&nbsp; PAN: ABOCS8638N</div>
+      <div class="footer-licence" style="margin-top:8px;">⚡ A-Class Electrical Licence · Uttar Pradesh</div>
+    </div>
+    <div class="footer-col">
+      <h4>Our Services</h4>
+      <ul>
+        <li><a href="#services">Mechanical Engineering</a></li>
+        <li><a href="#services">Electrical Engineering</a></li>
+        <li><a href="#services">Control & Instrumentation</a></li>
+        <li><a href="#services">Operation & Maintenance</a></li>
+        <li><a href="#services">Power Plant Services</a></li>
+        <li><a href="#services">Material Supply</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#clients">Our Clients</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#careers">Careers</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Reach Us</h4>
+      <ul>
+        <li><a href="https://wa.me/91XXXXXXXXXX">💬 WhatsApp Us</a></li>
+        <li><a href="tel:">📞 +91 XXXXXXXXXX</a></li>
+        <li><a href="mailto:">✉️   </a></li>
+        <li><a href="mailto:">✉️   </a></li>
+        <li><a href="http://www.sjospl.com">🌐 www.sjospl.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Shriji Optimum Solution Pvt Ltd. All Rights Reserved.</p>
+    <p>M6, 2nd Floor, Aditya Corporate Hub, Ghaziabad – 201002</p>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+revealEls.forEach(el => obs.observe(el));
+
+// Nav active highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) cur = s.id; });
+  navLinks.forEach(a => {
+    if (!a.classList.contains('nav-cta')) {
+      const active = a.getAttribute('href') === '#' + cur;
+      a.style.color = active ? 'var(--primary)' : '';
+      a.style.borderBottomColor = active ? 'var(--primary)' : '';
+    }
+  });
+});
+
+// Gallery filter
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    const show = cat === 'all' || item.dataset.cat === cat;
+    item.style.display = show ? '' : 'none';
+  });
+}
+
+// Form — Formspree + WhatsApp
+async function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  const name    = document.getElementById('f-name').value.trim();
+  const company = document.getElementById('f-company').value.trim();
+  const email   = document.getElementById('f-email').value.trim();
+  const phone   = document.getElementById('f-phone').value.trim();
+  const message = document.getElementById('f-message').value.trim();
+
+  btn.textContent = 'Sending…'; btn.disabled = true;
+
+  try {
+    await fetch('https://formspree.io/f/######', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ name, company, email, phone, message })
+    });
+  } catch(err) { console.warn('Email failed:', err); }
+
+  const wa = encodeURIComponent(
+    `*New Enquiry — SJOSPL Website*\n\n*Name:* ${name}\n*Company:* ${company||'N/A'}\n*Email:* ${email}\n*Phone:* ${phone||'N/A'}\n\n*Message:*\n${message}`
+  );
+  window.open(`https://wa.me/91XXXXXXXXXX?text=${wa}`, '_blank');
+
+  btn.textContent = '✓ Enquiry Sent!';
+  btn.style.background = '#166534';
+  e.target.reset();
+  setTimeout(() => {
+    btn.textContent = 'Send Enquiry →';
+    btn.style.background = '';
+    btn.disabled = false;
+  }, 4000);
+}
+</script>
+</body>
+</html>
